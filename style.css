@@ -52,7 +52,7 @@ ul.menu {
 }
 
 .menu__item {
-    margin-left: 20px;
+    margin-left: 20px; /* Space between menu items */
     font-size: 16px;
 }
 
@@ -60,10 +60,14 @@ ul.menu {
     text-decoration: none;
     color: #ffffff;
     transition: color 0.3s ease;
+    padding: 10px 15px; /* Padding inside each menu item */
+    border-radius: 4px;
 }
 
 .menu__item a:hover {
     color: #1a73e8;
+    background-color: #ffffff; /* Highlight with background color on hover */
+    transition: background-color 0.3s ease;
 }
 
 .menu__item.toggle {
@@ -104,7 +108,7 @@ a:hover {
     }
 
     .menu__item {
-        margin: 10px 0;
+        margin: 10px 0; /* Increased spacing for stacked menu items */
     }
 
     .menu__item.toggle {
