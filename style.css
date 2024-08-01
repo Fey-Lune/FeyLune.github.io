@@ -6,6 +6,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -43,6 +44,9 @@ nav#header {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .icon {
@@ -54,10 +58,7 @@ nav#header {
     color: #ffffff;
     margin: 0;
     font-weight: 800;
-}
-
-.logo__thin {
-    font-weight: 300;
+    font-size: 1.8em;
 }
 
 ul.menu {
@@ -91,6 +92,7 @@ ul.menu {
     display: flex;
     max-width: 1000px;
     margin: 30px auto;
+    gap: 20px; /* Adds space between the sidebar and content */
 }
 
 .doc__nav {
@@ -156,4 +158,3 @@ a:hover {
         margin-bottom: 20px;
     }
 }
-
