@@ -43,12 +43,13 @@ nav#header {
     font-weight: 300;
 }
 
-ul.menu {
+.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
+    text-align: right;
+    overflow:hidden;
 }
 
 .menu__item {
