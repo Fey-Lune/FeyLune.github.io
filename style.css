@@ -1,158 +1,304 @@
-/* General styles */
-body {
-    font-family: 'Nunito Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-    line-height: 1.6;
+html, body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: justify;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
+/* layout */
+#header {
+  border-bottom: 1px solid var(--code-bg-color);
+  grid-template-columns: 1fr 60px 200px 60% 1fr;
+  background-color: var(--primary-color-light)
 }
 
-h1, h2, h3 {
-    margin: 0.5em 0;
-    color: #333;
-}
-
-h1 {
-    font-size: 2.5em;
-}
-
-h2 {
-    font-size: 1.8em;
-}
-
-h3 {
-    font-size: 1.5em;
-}
-
-/* Navigation bar styles */
-nav#header {
-    background-color: #282c34;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.wrapper {
+  display: flex;
+  flex-grow: 1;
 }
 
 .icon {
-    height: 50px;
-    width: 50px;
+  grid-column: 2;
+  width: 50px;
+  padding: 1.5rem 0;
+  border: 1.5rem;
 }
-
+/* logo */
 .logo {
-    color: #ffffff;
-    margin: 0;
-    font-weight: 800;
+  font-weight: 900;
+  color: navy;
+  font-size: 1.4em;
+  grid-column: 3;
+  text-align: initial;
 }
 
 .logo__thin {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-ul.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
+/* menu */
+.menu {
+  grid-column: 4;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .menu__item {
-    margin-left: 20px; /* Adds space between menu items */
-    font-size: 16px;
+  padding: 1.5rem 1rem;
+  font-size: 1.1rem;
 }
 
-.menu__item a {
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    padding: 10px 15px; /* Adds padding inside each menu item */
-    border-radius: 4px;
-}
+/* doc */
+.doc__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 28%;
+  background-color: var(--bg-color);
+  z-index: -1;
 
-.menu__item a:hover {
-    color: #1a73e8;
-    background-color: #ffffff; /* Changes background color on hover */
-}
-
-/* Sidebar and content styles */
-.wrapper {
-    display: flex;
-    max-width: 1000px;
-    margin: 30px auto;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 
 .doc__nav {
-    flex: 1;
-    background-color: #333;
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
+  padding-top: 15px;
+  padding-left: 5px;
+  flex-basis: 20%;
+  font-weight: 200;
+  position: sticky;
+  top: 5%;
+  z-index: 5;
+  height: fit-content;
+  font-size: 18px;
 }
 
-.doc__nav ul {
-    list-style-type: none;
-    padding: 0;
+.doc__nav > ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: 1.8;
 }
 
-.doc__nav li {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.doc__nav ul.fixed {
+  position: fixed;
+  top: 2rem;
 }
 
-.doc__nav li:hover, .doc__nav .selected {
-    background-color: #444;
-    border-radius: 4px;
+.doc__nav li:hover {
+  color: var(--primary-color-light);
+  cursor: pointer;
+  transition: color .3s ease-in-out;
+}
+
+.doc__nav .selected {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.doc__nav .selected:after {
+  position: absolute;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--accent-color);
+  left: -1.5rem;
+  top: 0.3rem;
 }
 
 .doc__content {
-    flex: 3;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  flex-basis: 85%;
+  padding: 0 0 5rem 1rem;
 }
 
-/* Links */
-a {
-    text-decoration: none;
-    color: #1a73e8;
-    transition: color 0.3s ease;
+.js-section {
+  margin-bottom: 70px;
 }
 
-a:hover {
-    color: #0b51ba;
+.table-commands td:first-child {
+  width: 25%;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    nav#header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.table-commands td:first-child code {
+  font-weight: 300;
+  font-size: 18px;
+}
 
-    .menu__item {
-        margin: 10px 0; /* Increased spacing for stacked menu items */
-    }
+.file-path {
+  font-family: monospace;
+  color: #34723e;
+}
 
-    .wrapper {
-        flex-direction: column;
-    }
+.code {
+  border-radius: 3px;
+  font-family: Space Mono, SFMono-Regular, Menlo,Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  background: var(--bg-color);
+  border: 1px solid var(--code-bg-color);
+  color: var(--dark-gray-color);
+  overflow: auto;
+}
 
-    .doc__nav, .doc__content {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+.code--block {
+  white-space: pre-line;
+  text-align: initial;
+  padding: 0 1.5rem;
+  border: 0;
+  margin: 0;
+}
+
+#bucket-code {
+  white-space: pre;
+  text-align: initial;
+  tab-size: 4;
+  font-size: initial;
+  font-family: inherit;
+  padding: 0 1.5rem;
+  border: 0;
+  margin: 0;
+}
+
+.code__block {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: var(--primary-color-light);
+  color: black;
+  border: none;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.copy-button:hover {
+  background-color: var(--primary-color-light-darker);
+}
+
+
+@media (max-width: 850px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .doc__content {
+    padding-left: 0;
+  }
+  .doc__nav {
+    position: static;
+  }
+  .doc__nav ul {
+    border-bottom: 1px solid var(--code-bg-color);
+    padding-bottom: 0.5rem;
+  }
+  .doc__nav ul.fixed {
+    /* neutralize the fixed menu for mobile*/
+    position: relative;
+    top: 0;
+  }
+  .doc__nav li {
+    display: inline-block;
+    padding-right: 1rem;
+  }
+  .doc__nav .selected:after {
+    display: none;
+  }
+
+}
+
+.design-img {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+.design-img:hover {
+  opacity: 0.4;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0); /* Black */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 75%;
+  /*max-width: 75%;*/
+}
+
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  color: #ccc;
+  padding: 10px 0;
+  height: 100px;
+}
+
+
+/*Zoom in*/
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(1)}
+  to {-webkit-transform:scale(2)}
+}
+@keyframes zoom {
+  from {transform:scale(0.4)}
+  to {transform:scale(1)}
+}
+
+/*zoom out*/
+@-webkit-keyframes zoom-out {
+  from {transform:scale(1)}
+  to {transform:scale(0)}
+}
+@keyframes zoom-out {
+  from {transform:scale(1)}
+  to {transform:scale(0)}
+}
+
+
+/* Add Animation */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+.out {
+  animation-name: zoom-out;
+  animation-duration: 0.6s;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
 }
