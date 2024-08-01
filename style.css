@@ -3,29 +3,30 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #f0f2f5; /* Slightly lighter background color */
     color: #333;
+    line-height: 1.6;
 }
 
 /* Container for main content */
 .container {
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 900px; /* Increased width for better readability */
+    margin: 40px auto; /* Slightly reduced margin */
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow effect */
+    border-radius: 10px; /* Softer rounded corners */
     text-align: center;
 }
 
 /* Header / Navigation styles */
 nav#header {
-    background-color: #282c34;
-    padding: 10px 20px;
+    background-color: #1e1e1e; /* Darker background for better contrast */
+    padding: 15px 25px; /* Increased padding for a more spacious look */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Deeper shadow for header */
 }
 
 .icon {
@@ -36,7 +37,8 @@ nav#header {
 .logo {
     color: #ffffff;
     margin: 0;
-    font-weight: 800;
+    font-weight: 700;
+    font-size: 1.8em; /* Larger logo font size */
 }
 
 .logo__thin {
@@ -44,46 +46,44 @@ nav#header {
 }
 
 .menu {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    text-align: right;
-    overflow:hidden;
+    align-items: center; /* Center items vertically */
 }
 
 .menu__item {
-    margin-left: 20px;
-    font-size: 16px;
+    margin-left: 25px; /* Increased space between items */
+    font-size: 17px; /* Slightly larger font size */
 }
 
 .menu__item a {
     text-decoration: none;
     color: #ffffff;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 15px; /* Padding for better click area */
+    border-radius: 5px; /* Rounded corners for links */
 }
 
 .menu__item a:hover {
-    color: #1a73e8;
-}
-
-.menu__item.toggle {
-    display: none;
+    color: #ffffff;
+    background-color: #1a73e8; /* Background color change on hover */
 }
 
 /* Headings */
-h1, h2 {
+h1, h2, h3 {
     margin: 0.5em 0;
 }
 
 h1 {
     font-size: 2.5em;
-    color: #333;
+    color: #222;
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #666;
+    font-size: 1.8em; /* Larger font size for better visibility */
+    color: #555;
 }
 
 /* Links */
@@ -104,12 +104,21 @@ a:hover {
         align-items: flex-start;
     }
 
+    .menu {
+        flex-direction: column;
+        padding: 10px 0; /* Added padding for vertical menu */
+    }
+
     .menu__item {
-        margin: 10px 0;
+        margin: 10px 0; /* Increased space for vertical items */
     }
 
     .menu__item.toggle {
         display: block;
         cursor: pointer;
+    }
+
+    .container {
+        margin: 20px; /* Reduced margin for smaller screens */
     }
 }
